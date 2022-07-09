@@ -31,6 +31,14 @@ public class LinkDto {
                 .buildAndExpand(id)
                 .toUriString();
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getTargetUrl() {
+        return targetUrl;
+    }
 }
 
 
