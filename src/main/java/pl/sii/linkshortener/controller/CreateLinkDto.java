@@ -1,4 +1,4 @@
-package pl.sii.linkshortener.Controller;
+package pl.sii.linkshortener.controller;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -22,4 +22,5 @@ record CreateLinkDto(
                 0
         );
     }
+
 }

@@ -2,7 +2,10 @@ package pl.sii.linkshortener;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pl.sii.linkshortener.Controller.LinkDto;
+import pl.sii.linkshortener.controller.LinkDto;
+import pl.sii.linkshortener.link.LinkService;
+import pl.sii.linkshortener.link.LinkServiceImpl;
+import pl.sii.linkshortener.link.api.exception.LinkAlreadyExistsException;
 
 class LinkServiceImplTest {
 

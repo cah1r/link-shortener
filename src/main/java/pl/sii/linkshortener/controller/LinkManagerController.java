@@ -1,12 +1,12 @@
-package pl.sii.linkshortener.Controller;
+package pl.sii.linkshortener.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.sii.linkshortener.LinkService;
+import pl.sii.linkshortener.link.LinkService;
 
 @RestController
 @RequestMapping("/links")
-public class LinkManagerController {
+class LinkManagerController {
     private final LinkService linkService;
     public LinkManagerController(LinkService linkService) {
         this.linkService = linkService;

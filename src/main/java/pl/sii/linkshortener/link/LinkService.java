@@ -1,6 +1,6 @@
-package pl.sii.linkshortener;
+package pl.sii.linkshortener.link;
 
-import pl.sii.linkshortener.Controller.LinkDto;
+import pl.sii.linkshortener.controller.LinkDto;
 
 public interface LinkService {
 
