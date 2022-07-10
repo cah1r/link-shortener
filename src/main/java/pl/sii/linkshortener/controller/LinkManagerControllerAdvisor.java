@@ -10,7 +10,6 @@ import pl.sii.linkshortener.link.api.exception.LinkAlreadyExistsException;
 
 @ControllerAdvice
 class LinkManagerControllerAdvisor {
-
     @ExceptionHandler(LinkAlreadyExistsException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)

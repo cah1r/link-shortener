@@ -1,4 +1,4 @@
-package pl.sii.linkshortener.controller;
+package pl.sii.linkshortener.link.api;
 
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
