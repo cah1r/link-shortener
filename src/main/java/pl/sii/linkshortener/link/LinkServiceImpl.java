@@ -6,12 +6,14 @@ import pl.sii.linkshortener.link.api.LinkService;
 import pl.sii.linkshortener.link.api.exception.LinkAlreadyExistsException;
 import pl.sii.linkshortener.link.api.exception.LinkNotFoundException;
 
+import javax.transaction.Transactional;
+
 @Component
 public class LinkServiceImpl implements LinkService {
 
-    private final Repository repository;
+    private final LinkRepository repository;
 
-    public LinkServiceImpl(Repository repository) {
+    public LinkServiceImpl(LinkRepository repository) {
         this.repository = repository;
     }
 
@@ -20,11 +22,18 @@ public class LinkServiceImpl implements LinkService {
         if(repository.findById(linkDto.getId()).isPresent()) {
             throw new LinkAlreadyExistsException(linkDto.getId());
         }
-        repository.save(linkDto);
-        return repository.findById(linkDto.getId()).get();
+        repository.save(LinkEntity.fromDto(linkDto));
+        return linkDto;
     }
     @Override
+    @Transactional
     public String getLink(String id) {
-        return repository.findById(id).orElseThrow(() -> new LinkNotFoundException(id)).getTargetUrl();
+        LinkEntity linkEntity = repository.findById(id).orElseThrow(() -> new LinkNotFoundException(id));
+        linkEntity.setVisits(linkEntity.getVisits()+1);
+        return linkEntity.getTargetUrl();
+    }
+    @Override
+    public LinkDto getLinkDto(String id) {
+        return repository.findById(id).orElseThrow(() -> new LinkNotFoundException(id)).toDto();
     }
 }
