@@ -1,6 +1,7 @@
 package pl.sii.linkshortener.controller;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import pl.sii.linkshortener.link.api.LinkDto;
 
 import java.time.LocalDate;
 
